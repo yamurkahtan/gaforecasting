@@ -1,0 +1,51 @@
+﻿@model IEnumerable<GAForecast.Models.StationaryCostData>
+@{
+    ViewBag.Title = "Matlab";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int i = 1;
+}
+<h2>Stationary Cost Data</h2>
+<div class="row">
+    <div class="col-md-12">
+        <form action="@Url.Action("Matlab")" method="post">
+            <button type="submit">Get Stationary Cost Data</button>
+        </form>
+    </div>
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Arbetskostnad</th>
+                    <th>lags_Arbetskostnad</th>
+
+                    <th>Materialkostnad</th>
+                    <th>lags_Materialkostnad</th>
+
+                    <th>Verktygskostnad</th>
+                    <th>lags_Verktygskostnad</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@(i++)</th>
+                        <td>@item.Arbetskostnad</td>
+                        <td>@item.lags_Arbetskostnad</td>
+                       
+                        <td>@item.Materialkostnad</td>
+                        <td>@item.lags_Materialkostnad</td>
+
+                        <td>@item.Verktygskostnad</td>
+                        <td>@item.lags_Verktygskostnad</td>
+                    </tr>
+                }
+               
+                
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
